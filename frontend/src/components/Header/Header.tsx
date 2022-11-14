@@ -1,14 +1,14 @@
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Bars3Icon, BellIcon, XMarkIcon, ShoppingBagIcon, ShoppingCartIcon, UserIcon } from '@heroicons/react/24/outline'
 
 const navigation = [
-    { name: 'Shop', href: '#', current: true },
-    { name: 'Cart', href: '#', current: false },
-    { name: 'Sign In', href: '#', current: false },
+    { name: 'Shop', href: '#', current: true, icon: <ShoppingBagIcon className='block h-5 w-5' aria-hidden='true'/> },
+    { name: 'Cart', href: '#', current: false, icon: <ShoppingCartIcon className='block h-5 w-5' aria-hidden='true' /> },
+    { name: 'Sign In', href: '#', current: false, icon: <UserIcon className='block h-5 w-5' aria-hidden='true' /> },
 ]
 
-function classNames(...classes: any) {
+function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(' ')
 }
 
@@ -54,12 +54,13 @@ export default function Example() {
                                                 key={item.name}
                                                 href={item.href}
                                                 className={classNames(
-                                                    item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                                                    'px-3 py-2 rounded-md text-sm font-medium'
+                                                    item.current ? 'bg-gray-900 text-white flex ' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                                                    'px-3 py-2 rounded-md text-sm font-medium flex '
                                                 )}
                                                 aria-current={item.current ? 'page' : undefined}
                                             >
-                                                {item.name}
+                                                <div className='mr-2'>{ item.icon} </div>
+                                                <div>{ item.name} </div>
                                             </a>
                                         ))}
                                     </div>

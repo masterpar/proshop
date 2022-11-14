@@ -1,19 +1,17 @@
 import Header from "./components/Header/Header";
 import {Footer} from "./components/Footer/Footer";
-
+import {HomePage} from "./pages/HomePage";
 
 
 
 function App() {
 
   return (
-        <main>
+        <div className='flex flex-col h-screen justify-between bg-slate-50'>
             <Header/>
-            <div>
-                <h2>Proshop</h2>
-            </div>
+                <HomePage/>
             <Footer/>
-        </main>
+        </div>
   )
 }
 
